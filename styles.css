@@ -102,6 +102,17 @@ ul { margin: 0 0 16px; padding-left: 1.2em; }
 .breadcrumb { display: flex; gap: 10px; align-items: center; font-size: .9rem; color: var(--gan-muted); margin-bottom: 18px; }
 .breadcrumb a { color: var(--gan-muted); }
 
+/* Legal document (privacy / terms) — シンプルな1枚文書スタイル */
+.legal-doc { max-width: 820px; margin: 0 auto; color: var(--gan-ink); line-height: 1.9; }
+.legal-doc h2 { font-size: 1.15rem; margin: 40px 0 12px; }
+.legal-doc h2:first-of-type { margin-top: 32px; }
+.legal-doc p { margin: 0 0 16px; }
+.legal-doc .legal-intro { margin-bottom: 8px; }
+.legal-doc ol { margin: 0 0 16px; padding-left: 1.6em; }
+.legal-doc ol li { margin-bottom: 8px; }
+.legal-doc ol ol { margin: 8px 0 0; list-style-type: lower-roman; }
+.legal-doc a { color: var(--gan-blue); }
+
 /* Cards */
 .card { display: block; background: var(--gan-white); border: 1px solid var(--gan-border); border-radius: 18px; padding: 24px; box-shadow: 0 10px 30px rgba(10, 10, 10, .04); }
 .card:hover { text-decoration: none; border-color: var(--gan-blue-200); }
