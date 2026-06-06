@@ -1,0 +1,180 @@
+/* ============================================================
+   合同会社GAN. ブランドスタイル
+   GANブランド: 黒ワードマーク + 緑→青の円形マーク
+   配色トークンは :root に集約。
+   ============================================================ */
+:root {
+  /* Brand core (gan-brand skill) */
+  --gan-black: #0A0A0A;
+  --gan-green: #2E7D46;
+  --gan-blue: #1F6FC4;
+  --gan-white: #FFFFFF;
+  --gan-gray: #6B6B6B;
+  --gan-gradient: linear-gradient(45deg, #2E7D46 0%, #1F6FC4 100%); /* ロゴマーク専用 / logo mark only */
+
+  /* Typography (gan-brand skill) */
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body:    "Helvetica Neue", Arial, sans-serif;
+
+  /* Derived accent tints (緑/青ベース) */
+  --gan-blue-strong: #195a9f;          /* hover / 濃いめ青 */
+  --gan-blue-050: #eef4fb;             /* ghost / outline hover 背景 */
+  --gan-blue-100: #dbe9f8;             /* badge 背景 */
+  --gan-blue-200: #bcd5ef;             /* card hover border */
+
+  /* Text & surfaces */
+  --gan-ink: #0A0A0A;                  /* 見出し・本文 */
+  --gan-ink-soft: #333333;             /* 段落本文（可読性確保・AA） */
+  --gan-muted: #6B6B6B;                /* 補助テキスト */
+  --gan-border: #e5e7eb;               /* 中立ボーダー */
+  --gan-surface: #f5f7f9;              /* 明るいセクション背景 */
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--gan-ink);
+  background: var(--gan-white);
+  line-height: 1.75;
+}
+a { color: var(--gan-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.35; margin: 0 0 16px; color: var(--gan-ink); }
+h4 { font-size: .95rem; }
+p { margin: 0 0 16px; color: var(--gan-ink-soft); }
+ul { margin: 0 0 16px; padding-left: 1.2em; }
+
+.container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 20; background: rgba(255, 255, 255, .96); border-bottom: 1px solid var(--gan-border); }
+.header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; color: var(--gan-ink); min-width: 210px; }
+.logo:hover { text-decoration: none; }
+.logo-main { display: block; height: 52px; width: auto; } /* 公式ロゴ画像（GAN + マーク） */
+.logo-sub { font-size: .76rem; color: var(--gan-muted); }
+.nav { display: flex; align-items: center; gap: 14px; font-size: .9rem; }
+.nav a { color: #374151; }
+.nav a.is-current { color: var(--gan-blue); font-weight: 700; }
+.hamburger { display: none; width: 44px; height: 44px; border: 1px solid var(--gan-border); background: var(--gan-white); border-radius: 12px; align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
+.hamburger span { width: 20px; height: 2px; background: var(--gan-ink); display: block; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 11px 18px; font-weight: 700; border: 1px solid transparent; line-height: 1.2; cursor: pointer; }
+.btn-primary { background: var(--gan-green); color: var(--gan-white) !important; }
+.btn-primary:hover { filter: brightness(1.06); text-decoration: none; }
+.btn-outline { border-color: var(--gan-blue); color: var(--gan-blue); background: var(--gan-white); }
+.btn-outline:hover { background: var(--gan-blue-050); text-decoration: none; }
+.btn-ghost { color: var(--gan-blue); background: var(--gan-blue-050); }
+.btn-ghost:hover { text-decoration: none; background: var(--gan-blue-100); }
+
+/* Hero */
+.hero { padding: 88px 0; background: var(--gan-surface); }
+.hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.7rem); }
+.lead { font-size: 1.08rem; color: var(--gan-ink-soft); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-card { border-left: 5px solid var(--gan-green); }
+
+/* Sections */
+.section { padding: 72px 0; }
+.section.light { background: var(--gan-surface); }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.section-head p { max-width: 720px; }
+.page-hero { padding: 56px 0 48px; background: var(--gan-surface); border-bottom: 1px solid var(--gan-border); }
+.page-hero h1 { font-size: clamp(1.8rem, 3vw, 2.7rem); }
+.breadcrumb { display: flex; gap: 10px; align-items: center; font-size: .9rem; color: var(--gan-muted); margin-bottom: 18px; }
+.breadcrumb a { color: var(--gan-muted); }
+
+/* Cards */
+.card { display: block; background: var(--gan-white); border: 1px solid var(--gan-border); border-radius: 18px; padding: 24px; box-shadow: 0 10px 30px rgba(10, 10, 10, .04); }
+.card:hover { text-decoration: none; border-color: var(--gan-blue-200); }
+.card-grid { display: grid; gap: 20px; }
+.card-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card-grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.stacked { display: grid; gap: 24px; }
+.detail-card { scroll-margin-top: 100px; }
+
+/* Info blocks */
+.info-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.info-list > div { background: var(--gan-surface); border: 1px solid var(--gan-border); border-radius: 14px; padding: 18px; }
+.info-table { width: 100%; border-collapse: collapse; background: var(--gan-white); border: 1px solid var(--gan-border); }
+.info-table th, .info-table td { padding: 14px 16px; border-bottom: 1px solid var(--gan-border); text-align: left; vertical-align: top; }
+.info-table th { width: 220px; background: var(--gan-surface); color: var(--gan-ink); }
+.spec-list { display: grid; grid-template-columns: 90px 1fr; gap: 10px 14px; }
+.spec-list dt { font-weight: 700; color: var(--gan-ink); }
+.spec-list dd { margin: 0; color: var(--gan-ink-soft); }
+.note { background: var(--gan-white); border: 1px solid var(--gan-border); border-left: 5px solid var(--gan-blue); border-radius: 14px; padding: 18px; color: var(--gan-ink-soft); }
+
+/* Badge */
+.badge { display: inline-flex; align-items: center; width: max-content; border: 1px solid var(--gan-blue-200); background: var(--gan-blue-100); color: var(--gan-blue-strong); border-radius: 999px; padding: 4px 10px; font-weight: 700; font-size: .82rem; margin-bottom: 12px; }
+
+/* Anchor nav */
+.anchor-nav { display: flex; flex-wrap: wrap; gap: 10px; }
+.anchor-nav a { border: 1px solid var(--gan-border); border-radius: 999px; padding: 9px 14px; background: var(--gan-white); color: var(--gan-blue); font-weight: 700; }
+
+/* News */
+.news-list { list-style: none; padding: 0; margin: 0; border: 1px solid var(--gan-border); border-radius: 18px; overflow: hidden; background: var(--gan-white); }
+.news-list li { display: grid; grid-template-columns: 120px 100px 1fr; gap: 16px; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--gan-border); }
+.news-list li:last-child { border-bottom: 0; }
+.news-list time { color: var(--gan-muted); }
+.news-list span { color: var(--gan-blue); font-weight: 700; }
+.news-list.large li { padding: 20px; }
+.category-row { display: flex; gap: 10px; margin-bottom: 20px; }
+.related-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+
+/* CTA */
+.cta-section { padding: 56px 0; background: var(--gan-green); color: var(--gan-white); }
+.cta-section h2, .cta-section p { color: var(--gan-white); }
+.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.cta-section .btn-primary { background: var(--gan-white); color: var(--gan-blue-strong) !important; }
+.cta-section .btn-primary:hover { filter: none; background: var(--gan-blue-050); }
+
+/* Contact form */
+.contact-form { background: var(--gan-white); border: 1px solid var(--gan-border); border-radius: 18px; padding: 24px; display: grid; gap: 16px; }
+.contact-form label { display: block; font-weight: 700; color: var(--gan-ink); margin-bottom: 6px; }
+.contact-form label span { color: var(--gan-blue); font-size: .85rem; }
+.contact-form input, .contact-form select, .contact-form textarea { width: 100%; border: 1px solid #d1d5db; border-radius: 10px; padding: 12px; font: inherit; color: var(--gan-ink); background: var(--gan-white); }
+
+/* Footer */
+.site-footer { padding: 42px 0 24px; background: var(--gan-black); color: #e5e7eb; }
+.site-footer p { color: #d1d5db; }
+.footer-inner { display: flex; justify-content: space-between; gap: 32px; }
+.footer-logo { margin: 0 0 8px; }
+.footer-logo-img { display: block; height: 34px; width: auto; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; max-width: 650px; }
+.footer-nav a { color: #e5e7eb; }
+.copyright { margin-top: 24px; color: #9ca3af; font-size: .9rem; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hamburger { display: flex; }
+  .nav { position: absolute; top: 76px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; background: var(--gan-white); border-bottom: 1px solid var(--gan-border); padding: 16px 20px; }
+  .nav.is-open { display: flex; }
+  .nav a { padding: 8px 0; }
+  .hero-grid, .split { grid-template-columns: 1fr; }
+  .card-grid.two, .card-grid.three, .card-grid.four, .related-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .info-list { grid-template-columns: 1fr; }
+  .section-head { display: block; }
+  .footer-inner { display: block; }
+  .footer-nav { justify-content: flex-start; margin-top: 20px; }
+  .cta-inner { display: block; }
+  .cta-inner .btn { margin-top: 12px; }
+}
+@media (max-width: 640px) {
+  .container { width: min(100% - 28px, 1120px); }
+  .header-inner { min-height: 70px; }
+  .logo-main { height: 44px; }
+  .logo-sub { font-size: .68rem; }
+  .hero, .section { padding: 48px 0; }
+  .page-hero { padding: 36px 0; }
+  .card-grid.two, .card-grid.three, .card-grid.four, .related-links { grid-template-columns: 1fr; }
+  .news-list li { grid-template-columns: 1fr; gap: 4px; }
+  .info-table th, .info-table td { display: block; width: 100%; }
+  .spec-list { grid-template-columns: 1fr; }
+  .nav { top: 70px; }
+}
