@@ -71,9 +71,23 @@ ul { margin: 0 0 16px; padding-left: 1.2em; }
 .btn-ghost:hover { text-decoration: none; background: var(--gan-blue-100); }
 
 /* Hero */
-.hero { padding: 88px 0; background: var(--gan-surface); }
+.hero { padding: 80px 0; background: var(--gan-surface); }
 .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; }
-.hero h1 { font-size: clamp(2rem, 4vw, 3.7rem); }
+/* 見出しは横幅いっぱいに1行表示 */
+.hero-title {
+  font-size: clamp(2rem, 4.4vw, 3.6rem);
+  line-height: 1.2;
+  letter-spacing: .01em;
+  margin: 0 0 36px;
+  white-space: nowrap;
+}
+/* 見出しの下に「詳細文＋ボタン」と「画像」を2列で配置 */
+.hero-body {
+  display: grid;
+  grid-template-columns: 1fr .85fr;
+  gap: 56px;
+  align-items: center;
+}
 .lead { font-size: 1.08rem; color: var(--gan-ink-soft); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .hero-card { border-left: 5px solid var(--gan-green); }
@@ -149,6 +163,102 @@ ul { margin: 0 0 16px; padding-left: 1.2em; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; max-width: 650px; }
 .footer-nav a { color: #e5e7eb; }
 .copyright { margin-top: 24px; color: #9ca3af; font-size: .9rem; }
+
+/* ============================================================
+   Illustrations (loosedrawing.com フリーイラスト)
+   コンテンツ文面・構造は変更せず、視覚的な分かりやすさを補強する
+   ============================================================ */
+
+/* Hero 図版（見出しは全幅1行、下段で詳細文と2列） */
+.hero-text { min-width: 0; }
+.hero-figure { margin: 0; display: flex; align-items: center; justify-content: center; }
+.hero-figure img {
+  width: 100%; max-width: 380px; height: auto;
+  filter: drop-shadow(0 18px 36px rgba(31, 111, 196, .14));
+}
+
+/* セクション見出し横に添える小さなイラスト */
+.section-illust { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.section-illust .section-illust-body { flex: 1 1 320px; min-width: 0; }
+.section-illust .section-illust-media {
+  flex: 0 0 200px; display: flex; align-items: center; justify-content: center;
+}
+.section-illust .section-illust-media img {
+  width: 100%; max-width: 220px; height: auto;
+  filter: drop-shadow(0 12px 28px rgba(10, 10, 10, .08));
+}
+.section-illust.reverse { flex-direction: row-reverse; }
+
+/* カード上部に丸いイラストアイコンを配置 */
+.card-illust {
+  width: 76px; height: 76px; border-radius: 18px;
+  background: var(--gan-blue-050);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px; overflow: hidden;
+}
+.card-illust img { width: 60px; height: 60px; object-fit: contain; }
+
+/* 詳細カード（対応領域・事業紹介）の見出し脇イラスト */
+.detail-card { position: relative; }
+.detail-head { display: flex; align-items: center; gap: 18px; margin-bottom: 4px; }
+.detail-head h2 { margin: 0; }
+.detail-illust {
+  flex: 0 0 84px; width: 84px; height: 84px; border-radius: 20px;
+  background: var(--gan-surface); border: 1px solid var(--gan-border);
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.detail-illust img { width: 64px; height: 64px; object-fit: contain; }
+
+/* アンカーナビ用のセクション区切りイラスト帯 */
+.illust-band {
+  display: flex; align-items: center; justify-content: center; gap: 40px;
+  flex-wrap: wrap;
+}
+.illust-band figure { margin: 0; text-align: center; max-width: 150px; }
+.illust-band img {
+  width: 120px; height: 120px; object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(10, 10, 10, .06));
+}
+.illust-band figcaption { font-size: .82rem; color: var(--gan-muted); margin-top: 8px; }
+
+/* CTA セクションのイラスト
+   透過部分が緑背景を透かさないよう、白い角丸チップを敷く */
+.cta-inner .cta-illust {
+  flex: 0 0 120px;
+  width: 120px; height: 120px;
+  background: var(--gan-white);
+  border-radius: 24px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+}
+.cta-inner .cta-illust img {
+  width: 92px; height: 92px; object-fit: contain;
+}
+
+/* フォーム横などの補助イラスト */
+.aside-illust { text-align: center; margin: 8px 0 24px; }
+.aside-illust img { width: 100%; max-width: 240px; height: auto; }
+
+/* 出典クレジット */
+.credit-line { color: #9ca3af; font-size: .82rem; margin-top: 6px; }
+.credit-line a { color: #cbd5e1; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero-body { grid-template-columns: 1fr; gap: 32px; }
+  .hero-figure { order: -1; }
+  .hero-figure img { max-width: 280px; }
+  .section-illust .section-illust-media { flex-basis: 160px; }
+  .cta-inner .cta-illust { display: none; }
+}
+@media (max-width: 640px) {
+  .hero-title { white-space: normal; }
+  .section-illust { display: block; }
+  .section-illust .section-illust-media { margin-bottom: 20px; }
+  .detail-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .illust-band { gap: 20px; }
+  .illust-band img { width: 88px; height: 88px; }
+}
 
 /* Responsive */
 @media (max-width: 960px) {
