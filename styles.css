@@ -368,7 +368,7 @@ a.card:hover, .card-grid a.card:hover { text-decoration: none; }
 .copyright { margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, .1); color: #868d94; font-size: .84rem; letter-spacing: .04em; }
 
 /* ============================================================
-   Illustrations (loosedrawing.com)
+   Illustrations
    ============================================================ */
 .section-illust { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
 .section-illust .section-illust-body { flex: 1 1 320px; min-width: 0; }
